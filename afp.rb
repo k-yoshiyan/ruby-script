@@ -19,6 +19,11 @@ Dir.foreach(path) do |x|
   end
 end
 
+## ディレクトリー内の演奏対象ファイル名の表示
+music_array.each do |music|
+  puts music
+end  
+puts 
 
 ## 演奏楽曲の配列を個数分ループして処理
 ## dropメソッドでパラメータ分の配列要素を除去
@@ -28,5 +33,4 @@ music_array.drop(start_point).each do |music|
 end  
 
 # 課題
-# ディレクトリー内の全ファイルの表示と再生中ファイル名を表示すること
 # 演奏時間を表示すること
