@@ -29,8 +29,10 @@ puts
 ## dropメソッドでパラメータ分の配列要素を除去
 music_array.drop(start_point).each do |music|
   puts music
+### 演奏開始時刻とファイルサイズを表示する
+  puts "  Start: " + Time.now.strftime("%X") + "  Size: " + File.stat(music).size.div(1024).to_s + "kb"
   `afplay -q 1 #{music.shellescape}`
 end  
 
 # 課題
-# 演奏時間を表示すること
+# マッチングを正規表現にできないか
