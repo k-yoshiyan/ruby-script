@@ -1,0 +1,35 @@
+#!/usr/bin/ruby
+# coding: utf-8
+# startDay.rb
+# 日々のActivity Memoを朝コピーする
+
+require "fileutils"
+newfname = Time.now.strftime("%Y%m%d") + ".txt"
+
+puts "New file name : #{newfname}"
+
+cdir = "/Users/a00/Box Sync/2017/MyActivity/"
+files = Dir.entries(cdir)
+
+## 新ファイル名があればメッセージを出して終わる
+if files.include?(newfname) then puts "File already exists"
+  exit
+end
+
+## なければ1日前のファイル名を探す
+# 　あれば1日前のファイル名のファイル内容をコピー
+
+(1..10).each do |i|
+   prevname = (newfname.split(".")[0].to_i - 1).to_s + ".txt" 
+   if  files.include?(prevname)   then
+   FileUtils.cp("#{cdir}#{prevname}", "#{cdir}#{newfname}")
+     puts "File copied from #{prevname} to #{newfname}"
+     break
+   else puts "No data copied" 
+  end    
+end
+
+# 課題
+# 1レコード目に日付と時間を挿入する
+
+
