@@ -1,7 +1,7 @@
 # coding: utf-8
 # ヤマレコAPI getReclist
 # ユーザを指定してヤマレコに登録されている記録を取得する
-# 第2パラメータで -b があればfirefoxで開く、なければ標準出力に出す。
+# パラメータで -b があればfirefoxで開く、なければ標準出力に出す。
 
 require 'net/http'
 require 'json'
@@ -9,10 +9,15 @@ require 'json'
 Net::HTTP.version_1_2
 
 Host = 'www.yamareco.com'
-if ARGV[0] then userID = ARGV[0].to_s else userID= '4541' end
+
+userID = "4541"
+if ARGV[0] == "-b" && ARGV[1] != nil then userID = ARGV[1].to_s end
+if ARGV[1] == "-b" then userID = ARGV[0].to_s end
+if ARGV[1] == nil then userID = ARGV[0].to_s end
+
 maxpage = 40
 
-if ARGV[1] == '-b'
+if ARGV.include?("-b")
   then `open -a "/Applications/Firefox.app" https://www.yamareco.com/modules/yamareco/userinfo-#{userID}-data.html`
   
   else  
@@ -33,10 +38,7 @@ end
 
 end
 
-#課題
-#　パラメータを定位置でなくともよくする
-#  -b ありの場合でもデフォルト uidを4541 にする
-#  optparseを使う
-
+#課題 
+#user名からuserIDを入手する
 
 
