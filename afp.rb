@@ -21,7 +21,7 @@ end
 
 ## ディレクトリー内の演奏対象ファイル名の表示
 music_array.each do |music|
-  puts music
+  puts "(#{music_array.index(music)+1}) " + music
 end  
 puts 
 
@@ -36,3 +36,5 @@ end
 
 # 課題
 # マッチングを正規表現にできないか
+
+
