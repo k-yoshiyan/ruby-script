@@ -10,10 +10,12 @@ Net::HTTP.version_1_2
 
 Host = 'www.yamareco.com'
 
-userID = "4541"
+
 if ARGV[0] == "-b" && ARGV[1] != nil then userID = ARGV[1].to_s end
+if ARGV[0] == "-b" && ARGV[1] == nil then userID = "4541" end 
 if ARGV[1] == "-b" then userID = ARGV[0].to_s end
 if ARGV[1] == nil then userID = ARGV[0].to_s end
+if ARGV[1] == nil && ARGV[1] == nil then userID = "4541" end
 
 maxpage = 40
 
@@ -37,8 +39,11 @@ if ARGV.include?("-b")
 end
 
 end
+puts "userID = #{userID}"
 
-#課題 
+#課題
+#userID選択分岐のロジックを整理する
 #user名からuserIDを入手する
+
 
 
