@@ -8,7 +8,7 @@ newfname = Time.now.strftime("%Y%m%d") + ".txt"
 
 puts "New file name : #{newfname}"
 
-cdir = "/Users/a00/Box Sync/2017/MyActivity/"
+cdir = "/Users/aa078402/Box Sync/2017/MyActivity/"
 files = Dir.entries(cdir)
 
 ## 新ファイル名があればメッセージを出して終わる
@@ -20,7 +20,7 @@ end
 # 　あれば1日前のファイル名のファイル内容をコピー
 
 (1..10).each do |i|
-   prevname = (newfname.split(".")[0].to_i - 1).to_s + ".txt" 
+  prevname = (newfname.split(".")[0].to_i - i).to_s + ".txt"
    if  files.include?(prevname)   then
    FileUtils.cp("#{cdir}#{prevname}", "#{cdir}#{newfname}")
      puts "File copied from #{prevname} to #{newfname}"
