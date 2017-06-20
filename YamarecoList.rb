@@ -15,7 +15,7 @@ if ARGV[0] == "-b" && ARGV[1] != nil then userID = ARGV[1].to_s end
 if ARGV[0] == "-b" && ARGV[1] == nil then userID = "4541" end 
 if ARGV[1] == "-b" then userID = ARGV[0].to_s end
 if ARGV[1] == nil then userID = ARGV[0].to_s end
-if ARGV[1] == nil && ARGV[1] == nil then userID = "4541" end
+if ARGV[1] == nil && ARGV[0] == nil then userID = "4541" end
 
 maxpage = 40
 
