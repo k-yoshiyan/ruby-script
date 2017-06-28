@@ -7,6 +7,7 @@ require 'shellwords'
 extensions = [".mp3", ".wav", ".MP3", ".WAV"]
 
 directory = '/Users/koji/Music/wavdata'
+if ARGV[0] == "-p" then directory = '/Users/koji/Music/mp3data' end
 dir_array = []
 music_array = []
 
@@ -31,5 +32,5 @@ puts
 end
 
 # 課題
-# wavdata か mp3data かを選択可能にする
+
 
