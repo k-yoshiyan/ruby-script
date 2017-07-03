@@ -19,7 +19,7 @@ end
 ## なければ1日前のファイル名を探す
 # 　あれば1日前のファイル名のファイル内容をコピー
 
-(1..10).each do |i|
+(1..140).each do |i|
   prevname = (newfname.split(".")[0].to_i - i).to_s + ".txt"
    if  files.include?(prevname)   then
    FileUtils.cp("#{cdir}#{prevname}", "#{cdir}#{newfname}")
