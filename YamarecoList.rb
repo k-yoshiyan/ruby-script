@@ -1,7 +1,6 @@
 # coding: utf-8
-# ヤマレコAPI getReclist
+# ヤマレコAPI getReclist, getUserInfo
 # ユーザを指定してヤマレコに登録されている記録を取得する
-# パラメータで -b があればfirefoxで開く、なければ標準出力に出す。
 
 require 'net/http'
 require 'json'
@@ -10,19 +9,13 @@ Net::HTTP.version_1_2
 
 Host = 'www.yamareco.com'
 
-
-if ARGV[0] == "-b" && ARGV[1] != nil then userID = ARGV[1].to_s end
-if ARGV[0] == "-b" && ARGV[1] == nil then userID = "4541" end 
-if ARGV[1] == "-b" then userID = ARGV[0].to_s end
-if ARGV[1] == nil then userID = ARGV[0].to_s end
-if ARGV[1] == nil && ARGV[0] == nil then userID = "4541" end
+if ARGV[0] != nil then userID = ARGV[0].to_s
+  else userID = "4541"  # yoshiyan
+end
 
 maxpage = 40
 
-if ARGV.include?("-b")
-  then `open -a "/Applications/Firefox.app" https://www.yamareco.com/modules/yamareco/userinfo-#{userID}-data.html`
-  
-  else  
+# 当該ユーザの山行記録の入山日、場所、記録のIDを表示
 (1..maxpage).each do |page|
   path = '/api/v1/getReclist/user/' + userID + '/' + page.to_s
 
@@ -38,12 +31,13 @@ if ARGV.include?("-b")
   end
 end
 
+# ユーザ名とユーザIDを表示
+path = '/api/v1/getUserInfo/' + userID
+  Net::HTTP.start(Host, 80) do |http|
+    response = http.get(path)
+    js = JSON.parse(response.body)
+    puts js["userinfo"]["uname"] + ' [' + js["userinfo"]["uid"].to_s + ']'
 end
-puts "userID = #{userID}"
 
 #課題
-#userID選択分岐のロジックを整理する
 #user名からuserIDを入手する
-
-
-
