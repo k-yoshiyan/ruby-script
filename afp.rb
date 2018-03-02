@@ -20,7 +20,7 @@ Dir.foreach(path) do |x|
 end
 
 ## ディレクトリー内の演奏対象ファイル名の表示
-music_array.each do |music|
+music_array.sort!.each do |music|
   puts "(#{music_array.index(music)+1}) " + music
 end  
 puts 
@@ -36,5 +36,4 @@ end
 
 # 課題
 # マッチングを正規表現にできないか
-
-
+# 曲の順番を表示する
