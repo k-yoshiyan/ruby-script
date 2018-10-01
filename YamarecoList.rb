@@ -25,7 +25,7 @@ maxpage = 40
     if js["err"] == 1 then break
     else
       js["reclist"].each do |rec|
-      puts rec["start"] + ' : ' + rec["place"] + '('  + rec["rec_id"] + ')'
+      puts rec["start"] + ' : ' + rec["place"] + '('  + rec["rec_id"] + ')' + ' [' + rec["cheer"].to_s + ']'
       end
     end  
   end
