@@ -7,7 +7,7 @@ require 'json'
 
 Net::HTTP.version_1_2
 
-Host = 'www.yamareco.com'
+Host = 'api.yamareco.com'
 
 if ARGV[0] != nil then userID = ARGV[0].to_s
   else userID = "4541"  # yoshiyan
