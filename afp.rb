@@ -5,7 +5,7 @@
 # カレントディレクトリーの下のファイルをafplayで連続再生する
 require 'shellwords'
 path = Dir.pwd
-extensions = [".mp3", ".wav", ".MP3", ".WAV"]
+extensions = [".mp3", ".wav", ".MP3", ".WAV", ".m4a", ".flac"]
 music_array = []
 
 ## パラメーターで開始位置を与えられた場合に変数にセット
@@ -37,3 +37,4 @@ end
 # 課題
 # マッチングを正規表現にできないか
 # 曲の順番を表示する
+# 曲の長さ時間を表示する
