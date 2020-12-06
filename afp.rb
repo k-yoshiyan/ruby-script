@@ -30,9 +30,9 @@ puts
 music_array.drop(start_point).each do |music|
   puts music
 ### 演奏開始時刻と演奏時間を表示する
-  puts "  Start: " + Time.now.strftime("%X") 
+  puts "  Start: " + Time.now.strftime("%Y/%m/%d %H:%M:%S") 
   music_time = `sox --i -d #{music.shellescape}`
-  puts "  Time:  " + music_time
+  puts "  Duration:  " + music_time
   `afplay -q 1 #{music.shellescape}`
 end  
 
