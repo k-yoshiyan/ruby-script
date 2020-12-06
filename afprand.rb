@@ -9,6 +9,7 @@ extensions = [".mp3", ".wav", ".MP3", ".WAV", ".m4a", ".flac"]
 directory = '/Volumes/wavdata'
 if ARGV[0] == "-p" then directory = '/Users/koji/Music/mp3data' end
 if ARGV[0] == "-pp" then directory = '/Users/koji/Music/mp3-sync' end
+if ARGV[0] == "-wp" then directory = '/Volumes/wavdata/pop' end
 dir_array = []
 music_array = []
 
@@ -27,7 +28,7 @@ music = music_array[rand(music_array.size)]
 
 ## 演奏対象ファイル名の表示と演奏
 puts music
-  puts "  Start: " + Time.now.strftime("%X") 
+  puts "  Start: " + Time.now.strftime("%Y/%m/%d %H:%M:%S") 
   music_time = `sox --i -d #{music.shellescape}`
   puts "  Time:  " + music_time
   `afplay -q 1 #{music.shellescape}`
