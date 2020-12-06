@@ -30,7 +30,7 @@ music = music_array[rand(music_array.size)]
 puts music
   puts "  Start: " + Time.now.strftime("%Y/%m/%d %H:%M:%S") 
   music_time = `sox --i -d #{music.shellescape}`
-  puts "  Time:  " + music_time
+  puts "  Duration:  " + music_time
   `afplay -q 1 #{music.shellescape}`
 puts 
 end
