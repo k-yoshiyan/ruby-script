@@ -1,0 +1,17 @@
+#!/Usr/bin/ruby
+require 'date'
+
+Date::ABBR_DAYNAMES.replace %w(日 月 火 水 木 金 土)
+#Date::DAYNAMES.replace %w(日曜日 月曜日 火曜日 水曜日 木曜日 金曜日 土曜日) 
+
+#puts Date.today.strftime("%m月%d日(%a)")
+#puts Date.today.strftime("%m月%d日(%A)")
+
+puts "本日 " + (Date.today).strftime("%m月%d日(%a)") + "  / " + (Date.today).strftime("%B %d (%A)")
+puts "明日 " + (Date.today+1).strftime("%m月%d日(%a)") + "  / " + (Date.today+1).strftime("%B %d (%A)")
+puts
+puts "     " + (Date.today+2).strftime("%m月%d日(%a)") + "  / " + (Date.today+2).strftime("%B %d (%A)")
+puts "     " + (Date.today+3).strftime("%m月%d日(%a)") + "  / " + (Date.today+3).strftime("%B %d (%A)")
+puts "     " + (Date.today+4).strftime("%m月%d日(%a)") + "  / " + (Date.today+4).strftime("%B %d (%A)")
+puts "     " + (Date.today+5).strftime("%m月%d日(%a)") + "  / " + (Date.today+5).strftime("%B %d (%A)")
+puts "     " + (Date.today+6).strftime("%m月%d日(%a)") + "  / " + (Date.today+6).strftime("%B %d (%A)")
