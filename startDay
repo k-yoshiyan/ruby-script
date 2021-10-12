@@ -8,7 +8,7 @@ newfname = Time.now.strftime("%Y%m%d") + ".txt"
 
 puts "New file name : #{newfname}"
 
-cdir = "/Users/aa078402/Box Sync/2017/MyActivity/"
+cdir = "/Users/MyActivity/"
 files = Dir.entries(cdir)
 
 ## 新ファイル名があればメッセージを出して終わる
