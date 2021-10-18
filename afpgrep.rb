@@ -50,7 +50,7 @@ puts
 
 ## 演奏楽曲の配列を個数分ループして処理
 ## dropメソッドでパラメータ分の配列要素を除去
-music_array.droph(start_point).each do |music|
+music_array.drop(start_point).each do |music|
   puts music
 ### 演奏開始時刻と演奏時間を表示する
   puts "  Start: " + Time.now.strftime("%Y/%m/%d %H:%M:%S") 
