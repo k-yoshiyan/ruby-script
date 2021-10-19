@@ -11,11 +11,30 @@ directory = '/Volumes/wavdata/cla'
 dir_array = []
 matched_dir_array = []
 cond1 = ARGV[0]
+cond2 = ARGV[1]
+cond3 = ARGV[2]
+composer_name_array = []
 
+#配下のディレクトリー名を取得
 Dir.chdir(directory)
 dir_array = Dir.glob('./**/')
+
+#引数がなければ作曲家名を出力
+if ARGV.size == 0
+then 
+  dir_array.each do |x|
+    composer_name = x.split(/[_|-]/)[0]
+    composer_name_array.push(composer_name)
+  end
+   composer_name_array.uniq.sort.each do |y|
+     puts "  " + y.delete("./")
+  end
+     puts "条件を入力してください。"
+else
+
+#引数の条件とマッチング
 dir_array.each do |x|
-  if x.match(/#{cond1}/)
+  if x.match(/^(?=.*#{cond1})(?=.*#{cond2})(?=.*#{cond3})/i)
     matched_dir_array.push(x)
   end
 end
@@ -59,9 +78,9 @@ music_array.drop(start_point).each do |music|
   `afplay -q 1 #{music.shellescape}`
 end  
 
+end
+
+
 # 課題
 # matching 0の処理
-# 大文字小文字を意識しない正規表現
-
-
 
