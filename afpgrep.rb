@@ -7,13 +7,20 @@ require 'shellwords'
 extensions = [".mp3", ".wav", ".MP3", ".WAV", ".m4a", ".flac"]
 
 directory = '/Volumes/wavdata/cla'
-#directory = '/Users/koji'
+
+if ARGV.include?("-p")
+  directory = '/Volumes/wavdata/pop'
+  ARGV.delete("-p")
+end
+
 dir_array = []
 matched_dir_array = []
 cond1 = ARGV[0]
 cond2 = ARGV[1]
 cond3 = ARGV[2]
 composer_name_array = []
+
+puts $0
 
 #配下のディレクトリー名を取得
 Dir.chdir(directory)
@@ -45,11 +52,13 @@ matched_dir_array.each_with_index do |x,i|
 end
 
 puts "演奏したい番号を入力してください"
-input = STDIN.gets.to_i
-matched_dir = matched_dir_array[input]
+inputs = STDIN.gets.split(' ')
+matched_dir = matched_dir_array[inputs[0].to_i]
 Dir.chdir(matched_dir)
 music_array = []
-start_point = 0
+if inputs[1].to_i >= 1 then start_point = inputs[1].to_i - 1
+else start_point = 0
+end 
 
 ## ディレクトリーの内容オブジェクト数分ループして処理をし、演奏楽曲ファイル名の配列を作る
 path = Dir.pwd
@@ -82,5 +91,5 @@ end
 
 
 # 課題
-# matching 0の処理
+# 入力エラー処理
 
